@@ -1,0 +1,43 @@
+================================================================
+!! IMPORTANT !!
+
+This directory contains our main version of the hierarchy file 
+Whenever you change it, leave a note in this file to allow us 
+to track what has been changed
+================================================================
+
+  1. Diseases -> move to become last category
+  2. Organismal Systems -> move to become second but last category
+  3. Metabolism -> move to become third but last category
+  4. Membrane transport -> move to be first subcategory in "Metabolism"
+  5. Rename Category "Enzymes" -> "Other enzymes"
+  6. Rename Category "Chromosome" -> "Chromosome related"
+  7. Insert new category "Cell wall" as last subcategory in "Cell growth and death"
+  8. Rename Categor "Ubiquitin system" -> "Ubiquitin labeling"
+  9. Rename Category "DNA replication" -> "DNA replication complex"
+ 10. Rename Category "DNA replication proteins" -> "DNA replication control"
+ 11. Rename Category 	GTP-binding proteins -> GTP-binding signaling proteins
+ 12. Remove category titles "MAPK signaling pathway - fly" and "MAPK signaling pathway - yeast"
+    -> all KO entries become "MAPK signaling pathway"
+ 13. Rename Subcategory "Enzyme families" -> "Other enzymes"
+ 14. Rename Category "Meiosis yeast" -> "Meiosis"
+ 15. Remove category title "Cell cycle - yeast", all elements become elements of "Cell cycle"
+ 16. Make new Category "Cytoskeleton" before "Cell motility", move subcategories "Regulation of actin cytoskeleton" and  "Cytoskeleton  proteins" there
+ 17. Rename "Replication and repair" to "DNA maintenance"
+ 18. Rename "Aminoacyl-tRNA biosynthesis" to "tRNA loading"
+ 19. Rename Category "Further enzymes" -> "Other enzymes"
+ 20. New subcategory "Cytokinesis" directly before "meiosis" 
+ 21. Move entire subcategory "Peptidases" from "Further enzymes" to "Folding, Sorting and Degradation" (behind "proteasome")
+ 22. Rename "Citrate cycle (TCA cycle)" to "Citrate cycle"
+ 23. Rename "Transport and Catabolism" to "Vesicular transport"
+ 24. Add branch "Hemoglobin" -> "Hemoglobin" -> K13823 under "Cellular processes"
+ 
+ Changes in version 1.2
+  1. Rename Category "Carbohydrate metabolism" -> "Central Carbon Metabolism"
+  2. Rename Category "Glycolysis / Gluconeogenesis" -> "Glycolysis and Gluconeogenesis"
+  3. Rename Category "Citrate cycle" -> "TCA cycle and anaplerotic enzymes"
+  4. Move all KO entries in Category "glyoxylate and dicarboxylate metabolism"
+     into "TCA cycle and anaplerotic enzymes"
+  5. Remove all occurances of the following KO entires and put them only once in "TCA cycle and anaplerotic enzymes"
+     K01638 (aceB), K01595 (ppc), K00027 (maeA), K00029 (maeB)
+     
