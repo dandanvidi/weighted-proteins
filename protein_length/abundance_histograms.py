@@ -20,7 +20,7 @@ class protein_length(object):
 
     '''
     
-    def __init__(self, length, abundance, xlim=5000, ylim=None):
+    def __init__(self, length, abundance, xlim=5000, ylim=1):
         
         self.xlim = xlim
         self.ylim = ylim
@@ -51,11 +51,11 @@ class protein_length(object):
 
         # add some to plot
         ax.axvline(self.length.median(), c=KDE_color, ls=':', lw=3)
+
         ax.text(self.xlim * 0.60, self.ylim * 0.5, 'genomic\n'+
                         r'$\rm{median}=%.0f$'%self.length.median(), size=12.5, weight='bold')
         ax.set_xlim(0,self.xlim)
-        if self.ylim:
-            ax.set_ylim(0,self.ylim)
+        ax.set_ylim(0,self.ylim)
         ax.grid(color='w', ls='-', lw=1, zorder=0)
         ax.tick_params(color='w')
 
@@ -119,25 +119,25 @@ if __name__ == '__main__':
     dirListing = [x for x in dirListing if not x.startswith('.')]
     
     for f in dirListing:
+        if f == 'bsubtili_Chi_MCP_abundance.txt~':
+            continue
         org, fname = f.split('_', 1)
         fname = fname.rsplit('_', 1)[0]
         if not os.path.exists('res/%s_%s_hist.jpg' %(org, fname)):
             f_length = 'cache/%s_length.csv' %org
             fig, axes = plt.subplots(2,1, figsize=(6,8), sharex=True, sharey=True) 
             xlim=1000
-            ylim=None
-    #
+            ylim=0.0052
+    
             abundance = pd.DataFrame.from_csv(open('data/'+f)).abundance.dropna()
             length = pd.DataFrame.from_csv(open(f_length)).length.dropna()
-    #	
     
-    #
             pl = protein_length(length, abundance,
                                 xlim=xlim, ylim=ylim)
-    #    
+        
             pl.genomic_dist(ax=axes[0], KDE_color='r', label='genomic')
             pl.weighted_dist(ax=axes[1], KDE_color='b', label='weighted')
-    #   
+       
             axes[0].set_title(fname + ' [N=%i]'%len(pl.length), weight='bold')
             axes[0].set_ylabel('fraction of set', size=15)
             axes[1].set_ylabel('fraction of set', size=15)
@@ -146,4 +146,4 @@ if __name__ == '__main__':
             plt.tight_layout()
             fig.savefig('res/%s_%s_hist.jpg' %(org, fname))
             plt.close()
-#
+
